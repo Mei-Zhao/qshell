@@ -97,7 +97,7 @@ var (
 		Run:   Fetch,
 	}
 	mirrorCmd = &cobra.Command{
-		Use:   "mirrorupdate <Bucket> <Key>",
+		Use:   "prefetch <Bucket> <Key>",
 		Short: "Fetch and update the file in bucket using mirror storage",
 		Args:  cobra.ExactArgs(2),
 		Run:   Prefetch,
@@ -429,7 +429,7 @@ func Fetch(cmd *cobra.Command, params []string) {
 	}
 }
 
-// 【cdnprefetch】CDN文件预取, 预取文件到CDN节点和父层节点
+// 【prefetch】存储强制更新镜像源数据
 func Prefetch(cmd *cobra.Command, params []string) {
 	bucket := params[0]
 	key := params[1]
